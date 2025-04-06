@@ -15,6 +15,12 @@ const colors = {
     GRAY_500 : '#8E8E8E',
     GRAY_700 : '#575757',
 
+    BackgroundWhite : '#FFF8F0',
+
+    Orange_600 : '#D35400',
+    Orange_400 : '#FFA94D',
+    Outlined : '#4A90E2'
+
 
 }
 

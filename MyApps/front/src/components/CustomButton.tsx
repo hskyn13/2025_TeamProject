@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, PressableProps, View} from 'react-native';
+import {Pressable, StyleSheet, Text, PressableProps, View, Dimensions} from 'react-native';
 import {colors} from '../constants';
 
 interface CustomButtonProps extends PressableProps{
@@ -9,6 +9,8 @@ interface CustomButtonProps extends PressableProps{
     inValid?: boolean;  
 
 }
+
+const deviceHeight = Dimensions.get('screen').height;
 
 function CustomButton(
     {
@@ -39,9 +41,6 @@ function CustomButton(
                 styles[`${variant}Text`]]}>{label}</Text>
 
         </View> 
-    
-    
-    
     </Pressable> 
   ) 
 }
@@ -50,12 +49,12 @@ const styles = StyleSheet.create({
 
 
     filledPressed:{
-        backgroundColor: colors.PINK_650,
+        backgroundColor: colors.Orange_400,
 
     },
 
     outlinedPressed:{
-        backgroundColor: colors.PINK_700,
+        backgroundColor: colors.Orange_400,
         borderWidth: 1,
         opacity: 0.5,
 
@@ -74,12 +73,12 @@ const styles = StyleSheet.create({
 
     filled: {
 
-        backgroundColor: colors.PINK_700,
+        backgroundColor: colors.Orange_600,
     },
 
     outlined: {
 
-        borderColor: colors.PINK_700,
+        borderColor: colors.Orange_600,
         borderWidth: 1,
 
     },
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
 
     outlinedText:{
 
-        color: '#C63B64'
+        color: '#D35400'
     }
 
 });

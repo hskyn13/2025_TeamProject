@@ -1,10 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AuthHomeScreen from '../../screens/auth/AuthHomeScreen';
-import LoginScreen from '../../screens/auth/LoginScreen';
-import { authNavigations } from '../../constants/navigations';
-import { ImageBackground, StyleSheet } from 'react-native';
-import SignupScreen from '../../screens/auth/SignupScreen';
+import AuthHomeScreen from '@/screens/auth/AuthHomeScreen';
+import LoginScreen from '@/screens/auth/LoginScreen';
+import { authNavigations } from '@/constants/navigations';
+import SignupScreen from '@/screens/auth/SignupScreen';
 
 
 

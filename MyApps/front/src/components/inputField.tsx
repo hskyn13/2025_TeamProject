@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { forwardRef, useRef, ForwardedRef } from 'react';
 import {StyleSheet, View, TextInput, TextInputProps, Text, Pressable} from 'react-native';
 
 import { colors } from '../constants';
+import { mergeRefs } from '../utils';
 
 interface inputFieldProps extends TextInputProps{
     disabled? : boolean;
@@ -9,12 +10,16 @@ interface inputFieldProps extends TextInputProps{
     touched? : boolean;
 }
 
-function inputField({disabled = false,error,touched,...props}: inputFieldProps) {
-    const innerRef = useRef<TextInput | null>(null);
-    const handlePressInput = () =>{
-        innerRef.current?.focus()
-
-    }
+const InputField = forwardRef(
+    (
+      {disabled = false, error, touched, ...props}: inputFieldProps,
+      ref?: ForwardedRef<TextInput>,
+    ) => {
+      const innerRef = useRef<TextInput | null>(null);
+  
+      const handlePressInput = () => {
+        innerRef.current?.focus();
+      };
   return (
 
     <Pressable onPress={handlePressInput}>
@@ -25,7 +30,7 @@ function inputField({disabled = false,error,touched,...props}: inputFieldProps) 
             
             ]}>
             <TextInput 
-                ref={innerRef}
+                ref={ref? mergeRefs(innerRef, ref): innerRef}
                 editable = {!disabled}
                 placeholderTextColor={ colors.GRAY_500 } 
                 style = {[styles.input, disabled && styles.disabled]}
@@ -37,8 +42,8 @@ function inputField({disabled = false,error,touched,...props}: inputFieldProps) 
         {touched && Boolean(error) && <Text style={styles.error}>{error}</Text>}
         </View>
     </Pressable>
-  )
-}
+  );
+});
 
 const styles = StyleSheet.create({
 
@@ -79,4 +84,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default inputField;
+export default InputField; 

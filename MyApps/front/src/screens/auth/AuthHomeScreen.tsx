@@ -2,14 +2,14 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { View, Text, Button, StyleSheet, Dimensions, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
-import { authNavigations } from '../../constants/navigations';
-import CustomButton from '../../components/CustomButton';
+import { AuthStackParamList } from '@/navigations/stack/AuthStackNavigator';
+import CustomButton from '@/components/CustomButton';
+import { authNavigations } from '@/constants';
 
 
 
 type AuthHomeScreenProps = StackScreenProps<
-
+ 
   AuthStackParamList,
   typeof authNavigations.AUTH_HOME
 
@@ -61,11 +61,14 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 30,
     alignItems: 'center',
+   
+    
 
   },
   imageContainer:{
     flex:3,
-    width: Dimensions.get('screen').width/2
+    width: Dimensions.get('screen').width/2,
+    
 
   },
   image:{
